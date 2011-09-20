@@ -15,8 +15,11 @@ def linreg(training_set):
 	return coefficients[1] * x + coefficients[0]
 
     for (x, y) in training_set:
-	for c in coefficients:
-	    c = c + learning_rate * cost(algo, x, y)
+	i = 0
+	lim = len(coefficients)
+	while i < lim:
+	    coefficients[i] += learning_rate * cost(algo, x, y)
+	    i += 1
 
     return algo
 
